@@ -1,0 +1,2 @@
+database: "mysql://root:banana@localhost/orangejuicetest"
+main_user: "http://www.davidhaslem.com/"
