@@ -4,7 +4,7 @@ module OrangeJuice
     cattr_accessor :routes, :resources
     def stack_init
       self.class.resources ||= []
-      self.class.resources.each{|r| @core.load(r)}
+      self.class.resources.each{|r| @core.load(r) if r.kind_of?(Orange::Resource)}
     end
     
     
@@ -39,7 +39,6 @@ module OrangeJuice
       self.resources.unshift(resource)
     end
     stack do
-      orange.options[:development_mode] = true
     
       use Rack::CommonLogger
       use Rack::MethodOverride

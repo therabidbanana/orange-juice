@@ -1,0 +1,21 @@
+%h1 Current Project Status
+%h2.us Us
+%h2.them Clients
+%section.projects
+  - for name, project in projects
+    %article{:class => (project['light'] || 'yellow')}
+      %h1 #{name}
+      %ul
+        - for status in project['status']
+          %li
+            - waiting_on = 'them'
+            - status.gsub!(/@(\w+)/){|match| waiting_on = $1; '' }
+            - if waiting_on == 'us'
+              %span.us-arrow &larr;
+            - elsif waiting_on == 'both'
+              %span.us-arrow &larr;
+              %span.them-arrow &rarr;
+            - else
+              %span.them-arrow &rarr;
+            %p #{status}
+            

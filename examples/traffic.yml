@@ -1,0 +1,12 @@
+Banners:
+  light: red
+  status: 
+    - Need something from Christy 
+    - @us Robin should do something that takes a very long time to spell out
+
+Client:
+  status: @us Send colors
+
+Something easy:
+  light: green
+  status: @us Foo

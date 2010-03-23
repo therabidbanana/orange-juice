@@ -1,2 +1,1 @@
-database: "mysql://root:banana@localhost/orangejuicetest"
-main_user: "http://www.davidhaslem.com/"
+no_auto_upgrade: on

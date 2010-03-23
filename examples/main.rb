@@ -1,13 +1,18 @@
 require 'rubygems'
+require '../../orange/lib/orange-core'
 require '../lib/orange-juice'
+require 'orange-more/debugger'
 
 
-class Hello < Orange::Resource
-  call_me :hello
+class Traffik < Orange::Resource
+  call_me :traffik
   def view(packet, opts = {})
-    'Hello World'
+    projects = orange[:parser].yaml('traffic.yml')
+    packet['template.file'] = 'main.haml'
+    packet.add_css('traffic.css')
+    orange[:parser].haml('status.haml', packet, {:projects => projects})
   end
 end
 
-map(/\//, :hello)
-load Hello.new
+map(/\//, :traffik)
+load Traffik.new
