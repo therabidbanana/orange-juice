@@ -1,1 +1,2 @@
+database: "yaml:db"
 no_auto_upgrade: on
